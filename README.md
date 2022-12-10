@@ -57,6 +57,10 @@ La aplicación contiene las siguientes pantallas/rutas.
 - **'/videogame'** : Sirve para crear un videogame.
 
 
+
+![home videogames](https://user-images.githubusercontent.com/94568781/206865210-459374b5-4b88-4caf-87a8-ef27ba18bfd4.jpg)
+
+
 __Ruta principal__: 
 - [ ] Input de búsqueda para encontrar videojuegos por nombre
 - [ ] Área donde se ve el listado de videojuegos. Se muestra su:
