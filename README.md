@@ -49,6 +49,9 @@ __IMPORTANTE__: Para poder utilizar esta API externa es necesario crearse una cu
 
 #### Frontend
 
+![landingpage](https://user-images.githubusercontent.com/94568781/206865390-42a833f1-a3d3-49e1-b694-b32c7153549c.jpg)
+
+
 La aplicación contiene las siguientes pantallas/rutas.
 
 - **'/'** : Landing Page con un botón para ingresar al home (`Ruta principal`) y un boton para loguearme.
@@ -79,6 +82,9 @@ __Ruta de detalle de videojuego__: contiene:
 - [ ] Rating
 - [ ] Plataformas
 
+![detalles](https://user-images.githubusercontent.com/94568781/206865286-fe44c71f-027e-4e66-9abd-c7919861bc21.jpg)
+
+
 __Ruta de creación de videojuegos__: contiene:
 - [ ] Un formulario __controlado con JavaScript__ con los siguientes campos:
   - Nombre
@@ -88,6 +94,9 @@ __Ruta de creación de videojuegos__: contiene:
 - [ ] Posibilidad de seleccionar/agregar varios géneros
 - [ ] Posibilidad de seleccionar/agregar varias plataformas
 - [ ] Botón/Opción para crear un nuevo videojuego
+
+![crearvideogame](https://user-images.githubusercontent.com/94568781/206865297-66112191-e2f5-4454-af81-deac0dab41e7.jpg)
+
 
 
 #### Base de datos
@@ -132,6 +141,9 @@ Se desarrollo el servidor en Node/Express con las siguientes rutas:
   - [ ] __GET /inicio__:
   - Pantalla de inicio para loguearme.
 
+![iniciar sesion](https://user-images.githubusercontent.com/94568781/206865336-9cb7fe5c-3ea1-487d-b10f-61ce9bb1d8fb.jpg)
+
+
   - [ ] __GET /login__:
   - Pantalla de login
 
@@ -140,6 +152,9 @@ Se desarrollo el servidor en Node/Express con las siguientes rutas:
 
   - [ ] __GET /register__:
   - Pantalla con inputs para registrarse
+
+![registrarse](https://user-images.githubusercontent.com/94568781/206865352-942a6b92-213c-461d-b2ff-627c212e1c8a.jpg)
+
 
 - [ ] __POST /register__:
   - Post para registrarse
