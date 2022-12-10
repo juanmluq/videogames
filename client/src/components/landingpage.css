@@ -1,0 +1,47 @@
+.landing {
+        color: rgb(137 159 179 / 25%);
+        padding: 30px 10px 30px 10px;    
+}
+.myBtn{
+    background-color: aliceblue;
+    color: rgba(2, 2, 2, 0.548) ;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 15px;
+
+    
+}
+.myBtn:hover {
+    background-color: rgba(7, 7, 7, 0.493);
+    color: aliceblue; 
+    transition: background-color 2s;
+}
+
+.nombre{
+    display: grid;
+    justify-content: center;
+    align-items: flex-end;
+    
+}
+
+
+   .area{
+     text-align:center;
+     font-size:0.5em;
+     color:#fff;
+     letter-spacing: -1px;
+     font-weight:700;
+     text-transform:uppercase;
+     animation:blur .500s ease-out infinite;
+     text-shadow:0px 0px 5px #fff,
+         0px 0px 7px #fff;
+   }
+   
+   @keyframes blur{
+     from{
+         text-shadow:0px 0px 10px #fff,
+ 
+         0px -10px 100px #7B96B8;
+        }
+   }

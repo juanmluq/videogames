@@ -1,0 +1,25 @@
+.create{
+   color: azure;
+}
+
+.myBtns{
+    background-color: aliceblue;
+    color: rgba(2, 2, 2, 0.548) ;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 15px;
+}
+.myBtns:hover {
+    background-color: rgba(7, 7, 7, 0.493);
+    color: aliceblue; 
+    transition: background-color 2s;
+}
+
+@media(max-width: 550px){ 
+    .myBtns{    
+font-size: small;   
+padding: 5px;
+
+   }
+}
