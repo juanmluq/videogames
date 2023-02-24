@@ -31,14 +31,12 @@ const isNotAuthenticated = (req, res, next) => {
 
 const YOUR_API_KEY = "24a0984fbc3b468eabc19039739e1d36";
 const getApiInfo = async () => {
-    //
     const apiUrl = await axios.get('https://api.rawg.io/api/games?key=YOUR_API_KEY');
-    // const api2 = await api2.data.results.map(e => {return {e}})
     const apiInfo = await apiUrl.data.results.map(el => {
         return {
             id: el.id,
             name: el.name, 
-            released: el.released, // el nombre que le doy de la parte izquierda (released) conviene hacerlo de la misma forma que lo denomine en la db para acceder a cada componente con esa misma denominacion. Lo que esta a la derecha (el.released) lo saco de la api
+            released: el.released, 
             platforms: el.platforms.map(el => el.platform.name),
             rating: el.rating, 
             Img: el.background_image,
@@ -46,9 +44,7 @@ const getApiInfo = async () => {
             genres: el.genres.map(el => el.name)
         };
     });
-    console.log(apiInfo)
     return apiInfo;
-    
 
 };
 
@@ -211,8 +207,6 @@ function validarPlat(platforms, platform, plataformasdata) {
           });
           
           router.post('/logout', (req, res) => {
-            console.log('Hice post a /logout');
-            console.log('Hice post a /logout');
             res.clearCookie('userId');
             res.redirect('/inicio');
           });
@@ -263,9 +257,6 @@ res.send(allGenres);
     
     const platforms = []
     validarPlat(platforms, platform, plataformasdata);
-    // const aux = platforms.map(e => e)
-    // console.log(plataformasdata)
-    // console.log(videogameCreated)
 
     let videogameCreated = await Videogame.create ({ 
         name,
