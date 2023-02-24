@@ -1,32 +1,18 @@
 const { Router } = require('express');
-//const { path } = require('../app');
 const axios = require('axios');
 const {Genre, Videogame} = require ("../db");
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
 
 const router = Router();
 
 
-// const express = require('express');
-// const morgan = require('morgan');
-// const cookieParser = require('cookie-parser');
 
-// const app = express();
 
 const users = [
   {id: 1, name: 'Franco', email: 'Franco@gmail.com', password: '1234'},
   {id: 2, name: 'Matias', email: 'Matias@gmail.com', password: '1234'}
 ]
 
-// app.use(morgan('dev'));
-// app.use(cookieParser());
-// app.use(express.urlencoded({ extended: true }));
 
-// app.use((req, res, next) => {
-//   console.log(req.cookies);
-//   next();
-// });
 
 const isAuthenticated = (req, res, next) => {
   const { userId } = req.cookies;
@@ -43,13 +29,10 @@ const isNotAuthenticated = (req, res, next) => {
 };
 
 
-
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
-//const YOUR_API_KEY = a256b5f8e0754e568482f7d8ef4cf6d8;
-const getApiInfo = async () => {// esta funcion me trae la info de la api
+const YOUR_API_KEY = "24a0984fbc3b468eabc19039739e1d36";
+const getApiInfo = async () => {
     //
-    const apiUrl = await axios.get('https://api.rawg.io/api/games?key=24a0984fbc3b468eabc19039739e1d36');
+    const apiUrl = await axios.get('https://api.rawg.io/api/games?key=YOUR_API_KEY');
     // const api2 = await api2.data.results.map(e => {return {e}})
     const apiInfo = await apiUrl.data.results.map(el => {
         return {
@@ -69,19 +52,19 @@ const getApiInfo = async () => {// esta funcion me trae la info de la api
 
 };
 
-const getDbInfo = async () => {// esta funcion me trae la info de la base de datos
-    return await Videogame.findAll({//retorno todo videogame
-        include: {//el include es porque si quiero crear un videogame sin eso nunca me va a incluir el genero
+const getDbInfo = async () => {
+    return await Videogame.findAll({
+        include: {
             model: Genre,
-            attributes: ["name"], //el unico atributo que tiene Genero es name. El id me lo trae solo
-            through: {//esto habla sobre la tabla intermedia. esto va siempre!
+            attributes: ["name"], 
+            through: {
                 attributes: [],
             },
         }
     })
 }
 
-const getAllVideogames = async () => { //aca JUNTO LA DB Y LA INFO DE LA API
+const getAllVideogames = async () => { 
     const apiInfo = await getApiInfo();
     const dbInfo = await getDbInfo();
     const infoTotal = apiInfo.concat(dbInfo);
@@ -89,7 +72,7 @@ const getAllVideogames = async () => { //aca JUNTO LA DB Y LA INFO DE LA API
 }
 //para la validacion de platforms hago una funcion:
 //const allPlatforms = async () => {
-//  const apiPlat = await axios.get('https://api.rawg.io/api/platforms?key=24a0984fbc3b468eabc19039739e1d36');
+//  const apiPlat = await axios.get('https://api.rawg.io/api/platforms?key=YOUR_API_KEY');
 // const apiInf = await apiPlat.data.results.map(el => el.name);
 //return apiInf
 //}
@@ -237,12 +220,11 @@ function validarPlat(platforms, platform, plataformasdata) {
 router.get("/videogames", async (req, res) => {
     const name = req.query.name
     let videogamesTotal = await getAllVideogames();
-    if(name) {//si hay un name que me pasen por query
-        let videogameName = await videogamesTotal.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))//agarra el name y fijate si incluye lo que le pase por query en este caso name. tambien convierte a minuscula para comparar que sea igual indistinto si hay mayusculas. El include es para hacer una busqueda mas global (si pongo === deberia ser exactamente lo mismo).
-        videogameName.length ? //si existe videogameName devolver ese videogameName:
-        res.status(200).send(videogameName) : //sino hacer:
+    if(name) {
+        let videogameName = await videogamesTotal.filter(el => el.name.toLowerCase().includes(name.toLowerCase()))
+        res.status(200).send(videogameName) : 
         res.status(404).send("No esta el videogame");
-    } else { //si no me pasan name por query hacer:
+    } else { 
         res.status(200).send(videogamesTotal)
     }
     })
@@ -250,11 +232,11 @@ router.get("/videogames", async (req, res) => {
 
 
  router.get("/genres", async (req, res) => {
-const genresApi = await axios.get('https://api.rawg.io/api/genres?key=24a0984fbc3b468eabc19039739e1d36');
+const genresApi = await axios.get('https://api.rawg.io/api/genres?key=YOUR_API_KEY');
 const genres = genresApi.data.results.map(el => el.name)
 genres.forEach(el => {
-    Genre.findOrCreate({//si esta no lo crea. Si no esta lo crea
-        where: { name: el } //Crea en genres estas genres que le pase arriba (es decir las genres que vienen de la api) donde si encuentra el elemento que estoy mapeando no lo crea. Sino si lo crea.
+    Genre.findOrCreate({
+        where: { name: el } 
     })
 })
 const allGenres = await Genre.findAll();
@@ -268,7 +250,7 @@ res.send(allGenres);
         rating,
         platform,
         image,
-        createdInDb, //esto es para ver si esta creado en db
+        createdInDb, 
         Genr
     } = req.body
     //para validar platforms: 
@@ -276,7 +258,7 @@ res.send(allGenres);
     //for(var i = 0; i < plataformas.length; i++) {
     //if( plataformas[i] ==! platforms ) res.send("plataforma incorrecta")
     //}
-    const plataformas = await axios.get('https://api.rawg.io/api/platforms?key=24a0984fbc3b468eabc19039739e1d36');
+    const plataformas = await axios.get('https://api.rawg.io/api/platforms?key=YOUR_API_KEY');
     const plataformasdata = plataformas.data.results.map(el => el.name )
     
     const platforms = []
@@ -285,7 +267,7 @@ res.send(allGenres);
     // console.log(plataformasdata)
     // console.log(videogameCreated)
 
-    let videogameCreated = await Videogame.create ({ //creo el videogame
+    let videogameCreated = await Videogame.create ({ 
         name,
         released,
         rating,
@@ -294,10 +276,10 @@ res.send(allGenres);
         createdInDb //no se pone genres porque es una relacion aparte
     })
    
-    let genreDb = await Genre.findAll ({ //esto me lo traigo del modelo de Genres. Dentro de Genres busco todas las que donde name= genres que me llega por body
+    let genreDb = await Genre.findAll ({ 
         where: { name : Genr }
    })
-   videogameCreated.addGenre(genreDb) //agrega el genre donde coincidieron en este caso lo tengo en genreDb. El addGenres es un metodo de sequelize que trae de la tabla esto que le paso(genreDb)
+   videogameCreated.addGenre(genreDb) 
   //el addGenres se puede usar cuando uso el create. Si uso findorCreate o algun otro no me lo permite
   
   console.log(videogameCreated); 
@@ -305,7 +287,7 @@ res.send(allGenres);
  });
 
  router.get("/videogames/:id", async (req, res) => {
-    const id = req.params.id; //es lo mismo que hacer const {id}: req.params
+    const id = req.params.id; 
     const videoGamesTotal = await getAllVideogames();
     if(id) {
         let videoGameId = await videoGamesTotal.filter(el => el.id == id)
