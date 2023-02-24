@@ -7,14 +7,14 @@ export function getVideoGames(){
 
         return dispatch({
             type: "GET_VIDEOGAMES",
-            payload: json.data//me traigo todos los videogames de la api
+            payload: json.data
         })
     }
 }
 
 export function getLogin(){
     return async function(dispatch){
-        var json = await axios.get("http://localhost:3001/inicio");//aca se hace la conexion con el back
+        var json = await axios.get("http://localhost:3001/inicio");
 
         return dispatch({
             type: "GET_LOGIN",
