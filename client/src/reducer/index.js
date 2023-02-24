@@ -9,13 +9,13 @@ const initialState = {
 
 function rootReducer (state= initialState, action){
     switch(action.type){
-        case 'GET_VIDEOGAMES': //en action con esta accion me traigo todos los videogames al arreglo videoGames y al allVideoGames
+        case 'GET_VIDEOGAMES': 
             return{
                 ...state,
                 videoGames: action.payload,
                 allVideoGames: action.payload
             }
-            case 'GET_LOGIN': //en action con esta accion me traigo todos los videogames al arreglo videoGames y al allVideoGames
+            case 'GET_LOGIN': // con esta accion me traigo todos los videogames al arreglo videoGames y al allVideoGames
             return{
                 url: action.payload
             }
@@ -32,7 +32,7 @@ function rootReducer (state= initialState, action){
                 }
             
             case "FILTER_BY_PLATFORMS" :
-            const allVideoGameses = state.allVideoGames //las logicas siempre se hacen antes del return. Si lo pones adentro se rompe 
+            const allVideoGameses = state.allVideoGames 
             const platformsFilterd = action.payload === "All" ? allVideoGameses : allVideoGameses.filter(el => el.platforms[0] === action.payload)
             //aca digo que si payload=all es todo devolveme todo en la constante sino filtralo y devolveme los videogames por platforms = payload
             return {
