@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from "react-redux"; //importo el Provider
-import { store } from "./store"; //importo el store
+import { Provider } from "react-redux"; 
+import { store } from "./store"; 
 
 ReactDOM.render(
    //envuelvo la app en el Provider sino redux no actúa
