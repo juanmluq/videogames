@@ -17,7 +17,7 @@ function validate(input) {
 export default function VideoGameCreate(){
     const dispatch = useDispatch()
      const history = useHistory() 
-    const genres = useSelector(state => state.genres) //estos son los generos que traigo desde el reducer
+    const genres = useSelector(state => state.genres) 
     const [errors, setErrors] = useState({});//esto es para el validate
 
     const [ input, setInput ] = useState({//aca uso el input para guardar los datos que cargo en la pagina
@@ -28,14 +28,13 @@ export default function VideoGameCreate(){
     image: "",
     Genr: []
 })
+    
 function handleChange(e){
-    setInput({ //cuando entre a esta funcion: al estado input ademas de lo que tiene agregale el target.value 
-        //de lo que este modificando. Es decir si me paro en el input nombre el name es "name" y lo que escriba
-        // ahi va a setear el name de mi objeto input con lo que le escriba en el la pagina. Si me paro en el input description va a setear description del objeto.
+    setInput({ 
         ...input,
         [e.target.name] : e.target.value
     })
-    setErrors(validate({//setea el estado errors pasandoles la funcion validate con el estado input y el target 
+    setErrors(validate({
         ...input,
         [e.target.name]: e.target.value
     }));
@@ -53,7 +52,7 @@ function handleCheck(e){
 function handleSelect(e){ //cada vez que hago click renderiza cada cosa que voy seleccionando
     setInput({ 
      ...input,
-        Genr : [...input.Genr, e.target.value] //cuando mando Genr le digo traeme todo lo que ya tenia y agregale el target.value
+        Genr : [...input.Genr, e.target.value] //cuando envio Genr le digo traeme todo lo que ya tenia y agregale el target.value
     })
 }
 
@@ -73,7 +72,7 @@ function handleSubmit(e) {
      history.push("/home") //cuando termine de hacer lo anterior llevame al home. El history.push  redirige
 }
 
-function handleDelete(el){//con esta funcion elimino un genre de los que cargue en pantalla
+function handleDelete(el){//con esta funcion elimino un genero de los que cargue en pantalla
     setInput({
         ...input,
         Genr: input.Genr.filter(gen => gen !== el)//devuelve todo menos el elemento que yo cliquee
@@ -99,8 +98,8 @@ useEffect(()=> {
                 name = "name"
                 onChange={(e) => handleChange(e)} 
                />
-               {errors.name && (//si esta mi estado errors.name entonces renderizame un p con el errors.name. Esta es la forma de controlar el formulario 
-                <p className="error">{errors.name}</p>//averiguar porque hay una propiedad del input que se llama algo asi como require que te tira un error cuando no escribi ningun texto en el input
+               {errors.name && (// Esto es para controlar el formulario 
+                <p className="error">{errors.name}</p>
                )}
             </div>
             <div class="col-md-6">
