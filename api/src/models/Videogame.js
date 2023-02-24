@@ -13,7 +13,6 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      //unique: esto me sirve para un mail por ejemplo. suponiendo que registro mi mail luque11@gmail.com si viene otro a querer regristrarse con el mismo mail no lo deja
     },
     released: {
       type: DataTypes.STRING,
@@ -21,9 +20,8 @@ module.exports = (sequelize) => {
     },
     rating: {
       type: DataTypes.INTEGER,
-      // allowNull: false
     },
-    platforms: {//comparar con el pi breadkingbad hay que poner DataTypes.ENUM(...)
+    platforms: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true
     },
@@ -35,10 +33,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    createdInDb: {//sirve para llamar solo a lo que esta en bd. Esto sirve para cuando se hace una distincion en lo que esta en bd con lo que esta en la api. 
+    createdInDb: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: true, //esto esta seteado en true hay que hacerlo asi para que funcione
+      defaultValue: true, 
     }
   });
 };
