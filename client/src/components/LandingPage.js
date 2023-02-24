@@ -20,7 +20,7 @@ export default function LandingPage(){
     
 
     useEffect (()=> {
-        dispatch(getLogin()) //esto es lo mismo que en clases hacer mapdispatchtoprops. Es decir despacho la accion
+        dispatch(getLogin()) 
     },[dispatch]) 
 
 
