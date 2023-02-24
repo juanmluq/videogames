@@ -6,7 +6,7 @@ const router = Router();
 
 
 
-
+//Creo usuarios de prueba
 const users = [
   {id: 1, name: 'Franco', email: 'Franco@gmail.com', password: '1234'},
   {id: 2, name: 'Matias', email: 'Matias@gmail.com', password: '1234'}
