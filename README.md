@@ -49,7 +49,7 @@ __IMPORTANTE__: Para poder utilizar esta API externa es necesario crearse una cu
 
 #### Frontend
 
-![landingpage](https://user-images.githubusercontent.com/94568781/206865390-42a833f1-a3d3-49e1-b694-b32c7153549c.jpg)
+![landingpage](https://lh3.googleusercontent.com/20p3-XkEB_pJMnvFgplbqkWHlxThnlJ8anRIdD_lnPk6nEdpfKJyHABl1BhfbtTN5fnH_qvKeARkA8MASDCCysFZPGtr1m9ZX5mGhso)
 
 
 La aplicación contiene las siguientes pantallas/rutas.
@@ -61,7 +61,7 @@ La aplicación contiene las siguientes pantallas/rutas.
 
 
 
-![home videogames](https://user-images.githubusercontent.com/94568781/206865210-459374b5-4b88-4caf-87a8-ef27ba18bfd4.jpg)
+![home videogames](https://lh3.googleusercontent.com/cvhaoSipyc5scZfjMp3lKe2gajbyREgAAC0jTy6c3T4djkz4tw2jHfDYYMNsoSyUytqi3-zQRAKifQjsSPPEa331uGk5I3e8pSEqAAc)
 
 
 __Ruta principal__: 
@@ -82,7 +82,7 @@ __Ruta de detalle de videojuego__: contiene:
 - [ ] Rating
 - [ ] Plataformas
 
-![detalles](https://user-images.githubusercontent.com/94568781/206865286-fe44c71f-027e-4e66-9abd-c7919861bc21.jpg)
+![detalles](https://lh3.googleusercontent.com/VYkKctmmff-h4Jpc8gTEbdkTegIsxWTeeRrVWDRxJiWxeJcdNORCbHNhJe2Okd9rK-xyLawakDFoWpD5GUadL1-EYl7TW849yNS_dTM)
 
 
 __Ruta de creación de videojuegos__: contiene:
@@ -95,7 +95,7 @@ __Ruta de creación de videojuegos__: contiene:
 - [ ] Posibilidad de seleccionar/agregar varias plataformas
 - [ ] Botón/Opción para crear un nuevo videojuego
 
-![crearvideogame](https://user-images.githubusercontent.com/94568781/206865297-66112191-e2f5-4454-af81-deac0dab41e7.jpg)
+![crearvideogame](https://lh3.googleusercontent.com/VmLSIrq2EW1_JVJ_-iogGFN_8IWy1cs78zBSrsDsctYDDJaBaTewETpFEpgaxe9MKcskmrP4PcICRY_aj9E1YNUWIx6X3wsu0NvBiZoY)
 
 
 
@@ -141,7 +141,7 @@ Se desarrollo el servidor en Node/Express con las siguientes rutas:
   - [ ] __GET /inicio__:
   - Pantalla de inicio para loguearme.
 
-![iniciar sesion](https://user-images.githubusercontent.com/94568781/206865336-9cb7fe5c-3ea1-487d-b10f-61ce9bb1d8fb.jpg)
+![iniciar sesion](https://lh3.googleusercontent.com/N1CNfM127jAklNQr_AyDZTMHztjf1t0ucH7blvcgs1a8z1NXw2Oxwe5Sumc4izZobI-YyDGhUJ01CedZvFIZ5c3pbH-52CyXNOFG_SKm)
 
 
   - [ ] __GET /login__:
@@ -153,7 +153,7 @@ Se desarrollo el servidor en Node/Express con las siguientes rutas:
   - [ ] __GET /register__:
   - Pantalla con inputs para registrarse
 
-![registrarse](https://user-images.githubusercontent.com/94568781/206865352-942a6b92-213c-461d-b2ff-627c212e1c8a.jpg)
+![registrarse](https://lh3.googleusercontent.com/Ke01uxH7Q7hSi4f5o-7CDnqUcANhH5FyJBOAJDkf_1Fyc0a35q7zeiGFDH1OFSAJVfnX2X6qiD1Y1E31K9rl6Xc9FKR206yRMnXTX0I)
 
 
 - [ ] __POST /register__:
